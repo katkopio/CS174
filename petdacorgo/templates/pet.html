@@ -27,7 +27,7 @@
 						</div>
 						<div class = "row">
 							<div class="col-md-3">
-								<img src="static/img/animals/profile_pictures/piccolo.jpg" alt="" class="img-fluid">
+								<img src="/static/img/animals/profile_pictures/{{profile_picture}}" alt="" class="img-fluid">
 							</div>
 							<div class="col-md-3 mt-sm-20 left-align-p">
 								<div class="">
@@ -52,12 +52,12 @@
 						<div class="row gallery-item">
 							{% for photo in photoset1 %}
 							<div class="col-md-4">
-								<a href="static/img/animals/ad_pictures/{{photo}}" class="img-gal"><div class="single-gallery-image" style="background: url({{ url_for('static', filename=photo)}} )"></div></a>
+								<a href="/static/img/animals/ad_pictures/{{photo}}" class="img-gal"><div class="single-gallery-image" style="background: url('/static/img/animals/ad_pictures/{{photo}}')"></div></a>
 							</div>
 							{% endfor %}
 							{% for photo in photoset2 %}
 							<div class="col-md-6">
-								<a href="static/img/animals/ad_pictures/{{photo}}" class="img-gal"><div class="single-gallery-image" style="background: url({{ url_for('static', filename=photo)}}) "></div></a>
+								<a href="/static/img/animals/ad_pictures/{{photo}}" class="img-gal"><div class="single-gallery-image" style="background: url('/static/img/animals/ad_pictures/{{photo}}')"></div></a>
 							</div>
 							{% endfor %}
 						</div>
