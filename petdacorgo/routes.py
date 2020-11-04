@@ -71,7 +71,7 @@ def logout():
 @app.route("/add_friend", methods=['GET','POST'])
 def add_friend():
     form = AddFriendForm()
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate_on_submit():
         new_friend = Pet(
             petname = form.petname.data,
             fullname = form.fullname.data,
@@ -84,7 +84,7 @@ def add_friend():
             photo3 = "piccolo_g3.jpg",
             photo4 = "piccolo_g4.jpg",
             photo5 = "piccolo_g5.jpg",
-            pet_type = "cat",
+            pet_type = form.pet_type.data,
             owner = current_user
         )
         db.session.add(new_friend)
