@@ -3,6 +3,11 @@ from petdacorgo import app, db, bcrypt
 from petdacorgo.forms import RegistrationForm, LoginForm, AddFriendForm
 from petdacorgo.models import User, Pet
 from flask_login import login_user, current_user, logout_user, login_required
+from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
+
+photos = UploadSet('photos', IMAGES)
+configure_uploads(app, photos)
+patch_request_class(app)  # set maximum file size as 16MB
 
 @app.route("/")
 @app.route("/home")
@@ -72,18 +77,35 @@ def logout():
 def add_friend():
     form = AddFriendForm()
     if request.method == 'POST' and form.validate_on_submit():
+        profile_picture = request.files.get('profile_picture')
+        photo1 = request.files.get('photo1')
+        photo2 = request.files.get('photo2')
+        photo3 = request.files.get('photo3')
+        photo4 = request.files.get('photo4')
+        photo5 = request.files.get('photo4')
+
+        try:
+            profile_picture_fn = photos.save(profile_picture)
+            photo1_fn = photos.save(photo1)
+            photo2_fn = photos.save(photo2)
+            photo3_fn = photos.save(photo3)
+            photo4_fn = photos.save(photo4)
+            photo5_fn = photos.save(photo5)
+        except:
+            flash("Photo not uploaded.", category='warning')
+
         new_friend = Pet(
             petname = form.petname.data,
             fullname = form.fullname.data,
-            profile_picture = "piccolo.jpg",
+            profile_picture = profile_picture_fn,
             birthday = form.birthday.data,
             weight = form.weight.data,
             info = form.info.data,
-            photo1 = "piccolo_g1.jpg", 
-            photo2 = "piccolo_g2.jpg", 
-            photo3 = "piccolo_g3.jpg",
-            photo4 = "piccolo_g4.jpg",
-            photo5 = "piccolo_g5.jpg",
+            photo1 = photo1_fn, 
+            photo2 = photo2_fn, 
+            photo3 = photo3_fn,
+            photo4 = photo4_fn,
+            photo5 = photo5_fn,
             pet_type = form.pet_type.data,
             owner = current_user
         )
