@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+{% block body %}
+<section class="sample-text-area">
+	<div class="container">
+		<div class="col-lg-8 col-md-8">
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Add a Friend</legend>
+				<div class="form-group">
+					{{ form.pet_type.label(class="form-control-label") }}
+					{% if form.pet_type.errors %}
+						{{ form.pet_type(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.pet_type.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.pet_type(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.petname.label(class="form-control-label") }}
+					{% if form.petname.errors %}
+						{{ form.petname(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.petname.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.petname(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.fullname.label(class="form-control-label") }}
+					{% if form.fullname.errors %}
+						{{ form.fullname(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.fullname.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.fullname(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.info.label(class="form-control-label") }}
+					{% if form.info.errors %}
+						{{ form.info(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.info.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.info(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.birthday.label(class="form-control-label") }}
+					{% if form.birthday.errors %}
+						{{ form.birthday(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.birthday.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.birthday(class="form-control form-control-lg", type="date") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.profile_picture.label(class="form-control-label") }}
+					{% if form.profile_picture.errors %}
+						{{ form.profile_picture(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.profile_picture.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.profile_picture(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<p>Showcase your Pet: Upload 5 photos your pet here!</p>
+				<div class="form-group">
+					<i>{{ form.photo1.label(class="form-control-label") }}</i>
+					{% if form.photo1.errors %}
+						{{ form.photo1(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.photo1.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.photo1(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					<i>{{ form.photo2.label(class="form-control-label") }}</i>
+					{% if form.photo2.errors %}
+						{{ form.photo2(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.photo2.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.photo2(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					<i>{{ form.photo3.label(class="form-control-label") }}</i>
+					{% if form.photo3.errors %}
+						{{ form.photo3(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.photo3.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.photo3(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					<i>{{ form.photo4.label(class="form-control-label") }}</i>
+					{% if form.photo4.errors %}
+						{{ form.photo4(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.photo4.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.photo4(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					<i>{{ form.photo5.label(class="form-control-label") }}</i>
+					{% if form.photo5.errors %}
+						{{ form.photo5(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.photo5.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.photo5(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>					
+				</fieldset>
+				<div class="form-group">
+					{{ form.submit(class="btn btn-outline-info") }}
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+{% endblock body %}
