@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% block body %}
+		  	  
+			<!-- start banner Area -->
+			<section class="about-banner">
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Our Friends				
+							</h1>	
+							<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="/friends">Our Friends</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start portfolio-area Area -->
+            <section class="portfolio-area section-gap" id="portfolio">
+                <div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="menu-content pb-70 col-lg-8">
+		                    <div class="title text-center">
+		                        <h1 class="mb-10">Our Featured Friends</h1>
+		                        <p>These animals will gladly keep you company</p>
+		                    </div>
+		                </div>
+		            </div>
+
+		            <div class="filters">
+                        <ul>
+                            <li class="active" data-filter="*">All</li>
+                            <li data-filter=".cat">Cat</li>
+                            <li data-filter=".dog">Dog</li>
+                        </ul>
+                    </div>
+
+                    <div class="filters-content">
+	                    <div class="row grid">
+							{% for pet in pets %}
+	                        <div class="single-portfolio col-sm-4 all {{pet.pet_type}}">
+	                          	<div class="relative">
+		                           	<a href="/friends/{{pet.pet_id}}">
+			                           	<div class="thumb">
+			                           		<div class="overlay overlay-bg"></div>
+			                				<img class="image img-fluid" src="static/img/animals/profile_pictures/{{pet.profile_picture}}" alt="">
+			                           	</div>
+		                           	</a>
+	                            </div>
+								<div class="p-inner">
+								    <h4>{{pet.petname}}</h4>
+									<div class="cat">{{pet.pet_type}}</div>
+								</div>
+							</div>	         
+							{% endfor %}
+	                    </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End portfolio-area Area -->	
+	</html>
+
+{% endblock body %}

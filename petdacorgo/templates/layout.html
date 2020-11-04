@@ -1,0 +1,100 @@
+	<!DOCTYPE html>
+	<html lang="en" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+		<!-- Author Meta -->
+		<meta name="Katrina Kopio" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="Pet Da Corgo" content="">
+		<!-- Meta Keyword -->
+		<meta name="Corgi love" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		{% if title %}
+			<title>{{ title }}</title>
+		{% else %}
+			<title>Pet Da Corgo</title>
+		{% endif %}
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+		"{{ url_for('static', filename='bootstrap.min.css') }}"
+
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/linearicons.css')}}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css')}}">				
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css')}}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css')}}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css')}}">
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+		</head>
+
+		<body>	
+		  <header id="header">
+			<div class="container main-menu">
+				<div class="row align-items-center justify-content-between d-flex">
+				  <div id="logo">
+					<a href="/"><img src="{{ url_for('static', filename='img/logo2.png')}}" alt="Logo" title="Logo" /></a>
+				  </div>
+				  <nav id="nav-menu-container">
+					<ul class="nav-menu">
+					  <li><a href="{{ url_for('home') }}">Home</a></li>
+					  <li><a href="{{ url_for('about') }}">About</a></li>
+					  <li><a href="{{ url_for('friends') }}">Our Friends</a></li>
+					  {% if current_user.is_authenticated %}
+					  	  <li><a href="{{ url_for('logout') }}">Logout</a></li>
+					  {% else %}
+						  <li><a href="{{ url_for('login') }}">Login</a></li>
+						  <li><a href="{{ url_for('register') }}">Register</a></li>
+					  {% endif %}
+					</ul>
+				  </nav><!-- #nav-menu-container -->		    		
+				</div>
+			</div>
+		  </header><!-- #header -->
+
+				{% block body %}{% endblock %}
+			<!-- start footer Area -->
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-5 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4>PetDaCorgo</h4>
+								<p>
+									CS 174 Culminating Activity Requirement
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+			<script src="{{ url_for('static', filename='js/vendor/jquery-2.2.4.min.js')}}"></script>
+			<script src="{{ url_for('static', filename='js/popper.min.js')}}"></script>
+			<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js')}}"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>			
+			<script src="{{ url_for('static', filename='js/easing.min.js')}}"></script>			
+			<script src="{{ url_for('static', filename='js/hoverIntent.js')}}"></script>
+			<script src="{{ url_for('static', filename='js/superfish.min.js')}}"></script>	
+			<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js')}}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>	
+			<script src="{{ url_for('static', filename='js/jquery.tabs.min.js')}}"></script>						
+			<script src="{{ url_for('static', filename='js/jquery.nice-select.min.js')}}"></script>	
+			<script src="{{ url_for('static', filename='js/isotope.pkgd.min.js')}}"></script>			
+			<script src="{{ url_for('static', filename='js/waypoints.min.js')}}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.counterup.min.js')}}"></script>
+			<script src="{{ url_for('static', filename='js/simple-skillbar.js')}}"></script>							
+			<script src="{{ url_for('static', filename='js/owl.carousel.min.js')}}"></script>							
+			<script src="{{ url_for('static', filename='js/mail-script.js')}}"></script>	
+			<script src="{{ url_for('static', filename='js/main.js')}}"></script>	
+		</body>
